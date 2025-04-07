@@ -6,9 +6,12 @@ async def main():
         browser = await p.chromium.launch(headless=False)
         page = await browser.new_page()
         await page.goto("https://binge.buzz")
-        await page.screenshot(path="Homepage.png")
+        print('chrome successfully Opened')
         print(await page.title())
+        await page.wait_for_timeout(5000)
+    
+
+        await page.screenshot(path="homepage.png")
         await browser.close()
     
 asyncio.run(main())
-    
